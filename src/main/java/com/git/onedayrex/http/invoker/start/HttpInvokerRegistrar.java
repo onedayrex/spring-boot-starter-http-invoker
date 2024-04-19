@@ -1,6 +1,8 @@
 package com.git.onedayrex.http.invoker.start;
 
 import com.git.onedayrex.http.invoker.start.server.RemoteServer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinitionHolder;
@@ -28,6 +30,7 @@ import java.util.*;
  * it will register HttpInvoker Server And Client
  */
 public class HttpInvokerRegistrar implements ImportBeanDefinitionRegistrar, EnvironmentAware, ResourceLoaderAware {
+    public static final Logger log = LoggerFactory.getLogger(HttpInvokerRegistrar.class);
 
     private Environment environment;
 
@@ -36,7 +39,6 @@ public class HttpInvokerRegistrar implements ImportBeanDefinitionRegistrar, Envi
     @Override
     public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
         registerDefaultServerConfiguration(metadata,registry);
-//        registerDefaultClientConfiguration(metadata,registry);
     }
 
     /**
